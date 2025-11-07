@@ -5,6 +5,11 @@ backend:
   auth_type: pkce
   app_id: Ov23liTwDbzMad0X1EcO
   site_domain: dhudean-s-blog.pages.dev
+
+publish_mode: editorial_workflow
+slug:
+  sanitize_slug: true
+
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 
@@ -16,7 +21,19 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "标题 (Title)", name: "title", widget: "string"}
-      - {label: "发布日期 (Publish Date)", name: "date", widget: "datetime"}
+      - {label: "发布日期 (Publish Date)", name: "date", widget: "datetime", format: "YYYY-MM-DD", timeFormat: "HH:mm"}
       - {label: "是否为草稿 (Draft)", name: "draft", widget: "boolean", default: true}
-      - {label: "标签 (Tags)", name: "tags", widget: "list"}
+      - {label: "标签 (Tags)", name: "tags", widget: "list", default: ["博客"]}
+      - {label: "分类 (Categories)", name: "categories", widget: "list", default: ["默认"]}
+      - {label: "作者 (Author)", name: "author", widget: "string", default: "Dhudean"}
+      - {label: "摘要 (Summary)", name: "description", widget: "text", required: false}
       - {label: "正文 (Body)", name: "body", widget: "markdown"}
+
+  - name: "pages"
+    label: "页面"
+    folder: "content"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "标题 (Title)", name: "title", widget: "string"}
+      - {label: "内容 (Content)", name: "body", widget: "markdown"}
