@@ -4,6 +4,7 @@ backend:
   branch: master
   auth_type: pkce
   app_id: Ov23liTwDbzMad0X1EcO
+  site_domain: dhudean-s-blog.pages.dev
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 
