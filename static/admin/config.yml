@@ -1,6 +1,10 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: zev6pointk/dhudean-s-blog
   branch: master
+  # 使用Personal Access Token认证
+  # 访问/admin/时，系统会要求你输入GitHub Personal Access Token
+  # 创建token: https://github.com/settings/tokens (需要repo权限)
 
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
