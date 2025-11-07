@@ -2,25 +2,14 @@ backend:
   name: github
   repo: zev6pointk/dhudean-s-blog
   branch: master
-  auth_type: pkce
   app_id: Ov23liTwDbzMad0X1EcO
   site_domain: dhudean-s-blog.pages.dev
-  # 明确指定base_url和auth_endpoint用于Cloudflare Pages
   base_url: https://dhudean-s-blog.pages.dev
-  auth_endpoint: /api/auth/github
-  # 添加额外的配置以确保正确识别部署环境
-  use_proxy: false
 
-# 媒体文件夹配置
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 
-# 发布模式
 publish_mode: editorial_workflow
-
-# Slug配置
-slug:
-  sanitize_slug: true
 
 collections:
   - name: "blog"
@@ -29,14 +18,11 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "标题 (Title)", name: "title", widget: "string"}
-      - {label: "发布日期 (Publish Date)", name: "date", widget: "datetime", format: "YYYY-MM-DD", timeFormat: "HH:mm"}
-      - {label: "是否为草稿 (Draft)", name: "draft", widget: "boolean", default: true}
-      - {label: "标签 (Tags)", name: "tags", widget: "list", default: ["博客"]}
-      - {label: "分类 (Categories)", name: "categories", widget: "list", default: ["默认"]}
-      - {label: "作者 (Author)", name: "author", widget: "string", default: "Dhudean"}
-      - {label: "摘要 (Summary)", name: "description", widget: "text", required: false}
-      - {label: "正文 (Body)", name: "body", widget: "markdown"}
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "发布日期", name: "date", widget: "datetime"}
+      - {label: "草稿", name: "draft", widget: "boolean", default: true}
+      - {label: "标签", name: "tags", widget: "list"}
+      - {label: "正文", name: "body", widget: "markdown"}
 
   - name: "pages"
     label: "页面"
@@ -44,5 +30,5 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "标题 (Title)", name: "title", widget: "string"}
-      - {label: "内容 (Content)", name: "body", widget: "markdown"}
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "内容", name: "body", widget: "markdown"}
