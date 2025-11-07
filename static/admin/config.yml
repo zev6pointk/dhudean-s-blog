@@ -5,13 +5,22 @@ backend:
   auth_type: pkce
   app_id: Ov23liTwDbzMad0X1EcO
   site_domain: dhudean-s-blog.pages.dev
+  # 明确指定base_url和auth_endpoint用于Cloudflare Pages
+  base_url: https://dhudean-s-blog.pages.dev
+  auth_endpoint: /api/auth/github
+  # 添加额外的配置以确保正确识别部署环境
+  use_proxy: false
 
-publish_mode: editorial_workflow
-slug:
-  sanitize_slug: true
-
+# 媒体文件夹配置
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
+
+# 发布模式
+publish_mode: editorial_workflow
+
+# Slug配置
+slug:
+  sanitize_slug: true
 
 collections:
   - name: "blog"
